@@ -1,21 +1,27 @@
 <?php
-	include(dirname(__FILE__) . "/config.php");
+	require_once(dirname(__FILE__) . "/config.php");
 
-//Grab the page contents
-	$title = "";
-
-	if (have_posts()) {
-		 while (have_posts()) {
-			 the_post();
-		 }
-		
-		$title = get_the_title();
-		get_header();
-		the_content();
-		get_footer();
-	} else {
-		$title = "Page not found";
-		get_header();
-		get_footer();
+//Grab the page contents, 404.php will be called in the case of a 404 error
+	while (have_posts()) {
+		the_post();
 	}
+	
+	$title = get_the_title();
+	get_header();
+	
+//Print out a container if there isn't a ForwardFour Innovations plugin running on this page
+	if (!defined("FFI\PLUGIN_PAGE")) {
+		echo "<section class=\"content no-splash\">
+<h1>" . $title . "</h1>
+";
+	}
+
+	the_content();
+	
+	if (!defined("FFI\PLUGIN_PAGE")) {
+		echo "
+</section>";
+	}
+
+	get_footer();
 ?>

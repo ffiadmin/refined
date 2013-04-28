@@ -1,4 +1,49 @@
-<?php require_once(dirname(__FILE__) . "/config.php"); ?>
+<?php
+//Include the theme core
+	require_once(dirname(__FILE__) . "/config.php");
+	
+//Grab and generate the listing of pages
+	$list = "";
+	$pages = get_pages(array(
+		"hierarchical" => 0,
+		"parent" => 0,
+		"sort_column" => "menu_order",
+		"sort_order" => "ASC"
+	));
+	
+	foreach($pages as $page) {
+		$URL = get_page_link($page->ID);
+		
+		if ($GLOBALS['highlight'] == "") {
+			$class = is_page($page->ID) ? " class=\"active\"" : "";
+		} else {
+			$class = (strtolower(rtrim($URL, "/")) == strtolower(rtrim($GLOBALS['highlight'], "/"))) ? " class=\"active\"" : "";
+		}
+		
+		$list .= "<li" . $class . "><a" . $class . " href=\"" . $URL . "\">" . $page->post_title . "</a></li>
+";
+	}
+
+//Add the user login status to the navigation bar
+	if (is_user_logged_in()) {
+		global $current_user;
+		get_currentuserinfo();
+		
+		$list .= "<li class=\"account logged-in em\"><span>" . $current_user->first_name . " " . $current_user->last_name . "</span></li>
+";
+	} else {
+		$list .= "<li class=\"account\"><a href=\"" . get_site_url() . "/wp-login.php?redirect_to=" . urlencode($_SERVER['REQUEST_URI']) . "\">Login</a></li>
+";
+	}
+
+//Get the week number, to swap between the two different profile icons
+	$profiles = array("profile-me", "profile-em");
+	$date = new DateTime();
+	$weekRand = $date->format("W") % 2;
+
+//Choose between two "Did you know" facts
+	$fact = mt_rand(0, 1);
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -6,14 +51,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?php is_front_page() ? bloginfo("name") : wp_title(""); ?></title>
 <link rel="shortcut icon" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/favicon.ico"/>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<!--[if lt IE 9]>
-<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+<link rel="stylesheet" href="<?php echo FFI\RF\RESOURCE_PATH; ?>styles/main.css">
+<script src="<?php echo FFI\RF\RESOURCE_PATH; ?>scripts/template.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
 
 <?php wp_head(); ?>
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
-<link rel="stylesheet" href="<?php echo FFI\RF\RESOURCE_PATH; ?>styles/main.min.css">
 </head>
 
 <body>
@@ -25,10 +68,52 @@
 <h2>Site Navigation</h2>
 
 <ul>
-<?php wp_list_pages(array("depth" => 1, "title_li" => "")); ?>
-</ul>
+<?php echo $list; ?></ul>
 </nav>
 
 <div class="support"><a href="https://forwardfour.uservoice.com/clients/widgets/classic_widget" target="_blank"><h2>Support</h2></a></div>
 </header>
+
+<?php
+	if (is_user_logged_in()) {
+?>
+<aside class="account">
+<section class="person">
+<h2>Hello, <?php echo $current_user->first_name; ?>!</h2>
+
+<nav>
+<ul>
+<li class="logout"><a href="<?php echo wp_logout_url(home_url()); ?>">Logout</a></li>
+<li class="<?php echo $profiles[$weekRand]; ?>"><a href="<?php echo get_site_url(); ?>/wp-admin/profile.php">My Account</a></li>
+<li class="books"><a href="<?php echo get_site_url(); ?>/wp-admin/profile.php#book-exchange">My Books</a></li>
+<li class="trips"><a href="<?php echo get_site_url(); ?>/wp-admin/profile.php#travel-assistant">My Trips</a></li>
+</ul>
+</nav>
+</section>
 	
+<section class="facts">
+<h2>Did you know?</h2>
+	
+<?php
+	if ($fact) {
+?>
+<span class="responsive"></span>
+<p>Our site works great on your mobile device, too! Try it out on your tablet or mobile phone sometime.</p>
+<?php
+	} else {
+?>
+<p>Our entire site is built on top of <a href="http://wordpress.org" target="_blank">Wordpress</a>. We've also open sourced our code for all of our plugins, such as the <a href="https://github.com/ffiadmin/book-exchange" target="_blank">book exchange</a> and <a href="https://github.com/ffiadmin/travel-assistant" target="_blank">travel assistant</a>. You can find all of them, and more, on Github.</p>
+<a class="github" href="https://github.com/ffiadmin/" target="_blank">Github Projects</a>
+<?php
+	}
+?>
+</section>
+	
+<section class="credits">
+<p>Designed and developed by <a href="mailto:sprynoj1@gcc.edu">Oliver Spryn</a></p>
+</section>
+</aside>
+
+<?php
+	}
+?>
