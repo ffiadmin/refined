@@ -100,7 +100,7 @@ header#main nav ul li a, header#main nav ul li span {
 	-webkit-transition: all .25s ease-in-out;
     transition: all .25s ease-in-out;
 	
-	color: #CCCCCC;
+	color: #AAAAAA;
 	cursor: pointer;
 	display: inline-block;
 	font-size: 13px;
@@ -185,6 +185,10 @@ header#main nav ul li.account.logged-in span {
         padding: 5px;
     }
 	
+	header#main nav ul li.account a {
+		padding-right: 5px;
+	}
+	
 	header#main nav ul li.account span {
 		background: none;
 		padding: 5px;
@@ -217,6 +221,10 @@ header#main nav ul li.account.logged-in span {
         padding: 0px;
     }
 	
+	header#main nav ul li.custom-show {
+		display: block;
+	}
+	
 	header#main nav ul.open li {
 		border-top: 1px solid #DDDDDD;
         display: list-item;
@@ -237,6 +245,15 @@ header#main nav ul li.account.logged-in span {
 		right: 0px;
 		width: 52px;
 		top: 0px;
+	}
+	
+	header#main nav ul li.account a {
+		-moz-opacity: 0;
+		-ms-opacity: 0;
+		-o-opacity: 0;
+		-webkit-opacity: 0;
+		filter: alpha(opacity=0);
+		opacity: 0;
 	}
 	
 	header#main nav ul li.account.profile-em {
@@ -374,7 +391,7 @@ body aside.account section.person nav ul li a, body aside.account section.person
 
 body aside.account section.facts {
 	border-top: 1px solid white;
-	padding-top: 25px;
+	padding-top: 10px;
 }
 
 body aside.account section.facts p {
@@ -417,6 +434,17 @@ body aside.account section.credits p {
 	font-size: 13px;
 	margin: 0px;
 	padding: 0px 40px;
+}
+
+body aside.account span.close {
+	background: url(sprites/template-icons.png) no-repeat 0px -1362px;
+	cursor: pointer;
+	display: inline-block;
+	height: 17px;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	width: 18px;
 }
 
 @media screen and (max-width: 980px) {
@@ -734,5 +762,104 @@ footer#bottom ul.mega-footer li.logo {
 	
 	footer#bottom ul.mega-footer li.logo {
 		background-position: -41px 2px;
+	}
+}
+
+/**
+ * 404 error page
+ * ----------------------------------
+*/
+
+article.error-page {
+	min-height: 300px;
+}
+
+article.error-page.left {
+	padding-left: 650px;
+}
+
+article.error-page.right {
+	padding-right: 650px;
+}
+
+article.error-page.unicorn {
+	background-position: 90% bottom;
+	background-image: url(404/unicorn.png);
+	background-repeat: no-repeat;
+}
+
+article.error-page.umpire {
+	background-position: 90% bottom;
+	background-image: url(404/umpire.png);
+	background-repeat: no-repeat;
+}
+
+article.error-page.grades {
+	background-position: 15% center;
+	background-image: url(404/grades.png);
+	background-repeat: no-repeat;
+}
+
+article.error-page.dead-end {
+	background-position: 10% center;
+	background-image: url(404/dead-end.jpg);
+	background-repeat: no-repeat;
+}
+
+article.error-page h1 {
+	font-size: 40px !important;
+	margin-bottom: 0px;
+	text-align: left;
+	text-transform: none;
+}
+
+article.error-page h2 {
+	font-size: 24px !important;
+	text-align: left;
+	text-transform: none;
+}
+
+article.error-page h1::after, article.error-page h2::after {
+	content: none;
+}
+
+article.error-page p.return {
+	padding-top: 35px;
+}
+
+article.error-page p.return a {
+	background: #CCCCCC;
+	border: 1px solid black;
+	color: #333333;
+	padding: 5px 6px;
+}
+
+article.error-page p.return a:hover {
+	background-color: #EEEEEE;
+}
+
+@media screen and (max-width: 980px) {
+	article.error-page {
+		background-image: none !important;
+		min-height: auto !important;
+		padding-left: 10% !important;
+		padding-right: 10% !important;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	article.error-page h1 {
+		font-size: 24px !important;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	
+	article.error-page h2 {
+		font-size: 20px !important;
+		text-align: center;
+	}
+	
+	article.error-page p.return {
+		text-align: center;
 	}
 }
