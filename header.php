@@ -64,7 +64,7 @@
 <link rel="apple-touch-startup-image" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/small-portrait.jpg"  media="screen and (max-device-width: 320px) and (orientation:portrait)" />
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
-<link rel="stylesheet" href="<?php echo FFI\RF\RESOURCE_PATH; ?>styles/main.min.css">
+<link rel="stylesheet" href="<?php echo FFI\RF\RESOURCE_PATH; ?>styles/main.css">
 <script src="<?php echo FFI\RF\RESOURCE_PATH; ?>scripts/template.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
 
