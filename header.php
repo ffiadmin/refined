@@ -48,23 +48,22 @@
 <html lang="en-US">
 <head>
 <title><?php is_front_page() ? bloginfo("name") : wp_title(""); ?></title>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="HandheldFriendly" content="true">
-<meta name="apple-touch-fullscreen" content="yes" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-<link rel="shortcut icon" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/favicon.ico" />
-<link rel="apple-touch-icon" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/favicon-57.jpg" />
-<link rel="apple-touch-icon" sizes="72×72" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/favicon-72.jpg" />
-<link rel="apple-touch-icon" sizes="114×114" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/favicon-114.jpg" />
-<link rel="apple-touch-startup-image" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/large-landscape.jpg" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" />
-<link rel="apple-touch-startup-image" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/large-portrait.jpg" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" />
-<link rel="apple-touch-startup-image" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/small-landscape.jpg"  media="screen and (max-device-width: 320px) and (orientation:landscape)" />
-<link rel="apple-touch-startup-image" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/small-portrait.jpg"  media="screen and (max-device-width: 320px) and (orientation:portrait)" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="shortcut icon" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/favicon-57.jpg">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/favicon-72.jpg">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/favicon-114.jpg">
+<link rel="apple-touch-startup-image" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/large-landscape.jpg" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
+<link rel="apple-touch-startup-image" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/large-portrait.jpg" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+<link rel="apple-touch-startup-image" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/small-landscape.jpg"  media="screen and (max-device-width: 320px) and (orientation:landscape)">
+<link rel="apple-touch-startup-image" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/small-portrait.jpg"  media="screen and (max-device-width: 320px) and (orientation:portrait)">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
-<link rel="stylesheet" href="<?php echo FFI\RF\RESOURCE_PATH; ?>styles/main.css">
+<link rel="stylesheet" href="<?php echo FFI\RF\RESOURCE_PATH; ?>styles/main.min.css">
 <script src="<?php echo FFI\RF\RESOURCE_PATH; ?>scripts/template.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
 
@@ -96,6 +95,13 @@
 <nav>
 <ul>
 <li class="logout"><a href="<?php echo wp_logout_url(home_url()); ?>">Logout</a></li>
+<?php
+	if (current_user_can("manage_options")) {
+?>
+<li class="administration"><a href="<?php echo FFI\RF\HOME; ?>/wp-admin/">Administration</a></li>
+<?php
+	}
+?>
 <li class="<?php echo $profiles[$weekRand]; ?>"><a href="<?php echo FFI\RF\HOME; ?>/wp-admin/profile.php">My Account</a></li>
 <li class="books"><a href="<?php echo FFI\RF\HOME; ?>/wp-admin/profile.php#book-exchange">My Books</a></li>
 <li class="trips"><a href="<?php echo FFI\RF\HOME; ?>/wp-admin/profile.php#travel-assistant">My Trips</a></li>
@@ -114,7 +120,7 @@
 <?php
 	} else {
 ?>
-<p>Our entire site is built on top of <a href="http://wordpress.org" target="_blank">Wordpress</a>. We've also open sourced our code for all of our plugins, such as the <a href="https://github.com/ffiadmin/book-exchange" target="_blank">book exchange</a> and <a href="https://github.com/ffiadmin/travel-assistant" target="_blank">travel assistant</a>. You can find all of them, and more, on Github.</p>
+<p>Our entire site is built on top of <a href="http://wordpress.org" target="_blank">Wordpress</a>. We've also open sourced our code for all of our plugins, such as the <a href="https://github.com/ffiadmin/book-exchange/" target="_blank">book exchange</a> and <a href="https://github.com/ffiadmin/travel-assistant/" target="_blank">travel assistant</a>. You can find all of them, and more, on Github.</p>
 <a class="github" href="https://github.com/ffiadmin/" target="_blank">Github Projects</a>
 <?php
 	}

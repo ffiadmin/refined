@@ -19,8 +19,7 @@
 
 <footer id="bottom">
 <nav>
-<ul class="navigation">
-<li><?php
+<ul class="navigation"><?php
 	$TLPages = $info[0];
 	
 	for ($i = 0; $i < count($TLPages); $i++) {
@@ -45,7 +44,6 @@ echo "</ul>
 ";
 	}
 ?>
-</li>
 
 <li>
 <ul class="promotion">
@@ -58,7 +56,7 @@ echo "</ul>
 <li>
 <a class="link HTML5" href="http://www.w3.org/html/logo/" target="_blank"></a>
 <a class="link CSS3" href="http://www.w3.org/Style/CSS/" target="_blank"></a>
-<a class="link ForwardFour" href="http://forwardfour.com/" target="_blank"></a>
+<a class="link ForwardFour" href="https://github.com/ffiadmin/" target="_blank"></a>
 </li>
 </ul>
 </li>

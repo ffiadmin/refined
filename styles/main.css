@@ -38,6 +38,7 @@ header#main {
 	padding: 0px 10% 0px 10%;
 	position: relative;
 	width: 80%;
+	z-index: 30;
 }
 
 header#main h1 {
@@ -119,12 +120,12 @@ header#main nav ul li a.active, header#main nav ul li.active a {
 }
 
 header#main nav ul li.account a, header#main nav ul li.account span {
-	background: url(sprites/template-icons.png) no-repeat right -1038px;
+	background: url(sprites/template-icons.png) no-repeat right -1073px;
 	padding-right: 20px;
 }
 
 header#main nav ul li.account.logged-in span {
-	background-position:  right -1112px;
+	background-position: right -1147px;
 }
 
 @media screen and (max-width: 980px) {
@@ -252,12 +253,11 @@ header#main nav ul li.account.logged-in span {
 		-ms-opacity: 0;
 		-o-opacity: 0;
 		-webkit-opacity: 0;
-		filter: alpha(opacity=0);
 		opacity: 0;
 	}
 	
 	header#main nav ul li.account.profile-em {
-		background-position: 17px -914px;
+		background-position: 17px -949px;
 	}
 	
 	header#main nav ul.open li.account {
@@ -367,20 +367,24 @@ body aside.account section.person nav ul li.logout {
 	background-position: 39px -844px;
 }
 
+body aside.account section.person nav ul li.administration {
+	background-position: 39px -879px;
+}
+
 body aside.account section.person nav ul li.profile-me {
-	background-position: 39px -880px;
+	background-position: 39px -915px;
 }
 
 body aside.account section.person nav ul li.profile-em {
-	background-position: 39px -917px;
+	background-position: 39px -952px;
 }
 
 body aside.account section.person nav ul li.books {
-	background-position: 39px -953px;
+	background-position: 39px -988px;
 }
 
 body aside.account section.person nav ul li.trips {
-	background-position: 39px -989px;
+	background-position: 39px -1024px;
 }
 
 body aside.account section.person nav ul li a, body aside.account section.person nav ul li a:hover, body aside.account section.person nav ul li a:active {
@@ -390,8 +394,7 @@ body aside.account section.person nav ul li a, body aside.account section.person
 }
 
 body aside.account section.facts {
-	border-top: 1px solid white;
-	padding-top: 10px;
+	padding-top: 24px;
 }
 
 body aside.account section.facts p {
@@ -400,7 +403,7 @@ body aside.account section.facts p {
 }
 
 body aside.account section.facts span.responsive {
-	background: url(sprites/template-icons.png) no-repeat 75px -1252px;
+	background: url(sprites/template-icons.png) no-repeat 75px -1287px;
 	display: block;
 	height: 61px;
 	margin: 15px 0px;
@@ -413,7 +416,7 @@ body aside.account section.facts a.github {
 	-webkit-transition: all .25s ease-in-out;
     transition: all .25s ease-in-out;
 	
-	background: #0C0C0C url(sprites/template-icons.png) no-repeat 39px -1319px;
+	background: #0C0C0C url(sprites/template-icons.png) no-repeat 39px -1354px;
 	color: #FFFFFF;
 	display: block;
 	font-size: 13px;
@@ -437,7 +440,7 @@ body aside.account section.credits p {
 }
 
 body aside.account span.close {
-	background: url(sprites/template-icons.png) no-repeat 0px -1362px;
+	background: url(sprites/template-icons.png) no-repeat 0px -1397px;
 	cursor: pointer;
 	display: inline-block;
 	height: 17px;
