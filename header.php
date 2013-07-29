@@ -50,25 +50,12 @@
 <title><?php is_front_page() ? bloginfo("name") : wp_title(""); ?></title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="HandheldFriendly" content="true">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
 <link rel="shortcut icon" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/favicon.ico">
-<link rel="apple-touch-icon-precomposed" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/favicon-57.jpg">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/favicon-72.jpg">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/favicon-114.jpg">
-<link rel="apple-touch-startup-image" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/large-landscape.jpg" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
-<link rel="apple-touch-startup-image" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/large-portrait.jpg" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
-<link rel="apple-touch-startup-image" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/small-landscape.jpg"  media="screen and (max-device-width: 320px) and (orientation:landscape)">
-<link rel="apple-touch-startup-image" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/small-portrait.jpg"  media="screen and (max-device-width: 320px) and (orientation:portrait)">
-
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
+<link rel="apple-touch-icon-precomposed" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/favicon-114.jpg">
 <link rel="stylesheet" href="<?php echo FFI\RF\RESOURCE_PATH; ?>styles/main.min.css">
 <script src="<?php echo FFI\RF\RESOURCE_PATH; ?>scripts/template.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
 
-<?php wp_head(); ?>
-</head>
+<?php wp_head(); ?></head>
 
 <body>
 <header id="main">

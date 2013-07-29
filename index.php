@@ -9,7 +9,7 @@
 	$title = get_the_title();
 	get_header();
 	
-//Print out a container if there isn't a ForwardFour Innovations plugin running on this page
+//Print out a shaded content area if there isn't a ForwardFour Innovations plugin running on this page
 	if (!defined("FFI\PLUGIN_PAGE")) {
 		echo "<section class=\"content no-splash\">
 <h1>" . $title . "</h1>
