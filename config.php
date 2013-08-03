@@ -8,12 +8,8 @@
 	define("FFI\RF\RESOURCE_PATH", (CDN ? "//ffistatic.appspot.com/sga" : site_url()) . "/wp-content/themes/refined/");
 
 //Remove the admin bar, the theme will provide one
-	function removeMargin() { // CSS override for the frontend portion of the site 
-		echo "<style>html {margin-top: 0px !important;} * html body {margin-top: 0px !important;}</style>
-";  
-	}
-	
-	add_filter("wp_head", "FFI\RF\\removeMargin", 99);
+	remove_action("wp_head", "_admin_bar_bump_cb");
+	remove_action("wp_head", "wp_admin_bar_header");
 	remove_action("wp_footer", "wp_admin_bar_render", 1000);
 	show_admin_bar(false);     
 	wp_deregister_script("admin-bar");

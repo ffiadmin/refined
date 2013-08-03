@@ -49,7 +49,7 @@
 <head>
 <title><?php is_front_page() ? bloginfo("name") : wp_title(""); ?></title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 <link rel="shortcut icon" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/favicon-114.jpg">
 <link rel="stylesheet" href="<?php echo FFI\RF\RESOURCE_PATH; ?>styles/main.min.css">
