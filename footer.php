@@ -64,7 +64,7 @@ echo "</ul>
 </nav>
 
 <ul class="mega-footer">
-<li>Established in 1876</li>
+<li>Established in 1924</li>
 <li class="logo"></li>
 <li>Handmade at GCC</li>
 </ul>
