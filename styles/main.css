@@ -355,13 +355,13 @@ body aside.account section h2 {
 	margin: 0px;
 }
 
-body aside.account section.person nav ul {
+body aside.account section nav ul {
 	list-style: none;
 	margin-left: 0px;
 	padding-left: 0px;
 }
 
-body aside.account section.person nav ul li {
+body aside.account section nav ul li {
 	-moz-transition: all .25s ease-in-out;
 	-ms-transition: all .25s ease-in-out;
     -o-transition: all .25s ease-in-out;
@@ -369,12 +369,94 @@ body aside.account section.person nav ul li {
     transition: all .25s ease-in-out;
 	
 	background: #0C0C0C url(sprites/template-icons.png) no-repeat;
+	cursor: pointer;
 	font-size: 13px;
+	padding: 10px 0px 10px 65px;
 	text-transform: uppercase;
 }
 
-body aside.account section.person nav ul li:hover {
+body aside.account section nav ul li a, body aside.account section nav ul li a:hover, body aside.account section nav ul li a:active {
+	color: #FFFFFF;
+}
+
+body aside.account section nav ul li:hover {
 	background-color: #333333;
+}
+
+body aside.account section.login form, body aside.account section.register form {
+	padding: 0px 40px;
+}
+
+body aside.account section.login form p, body aside.account section.register form p {
+	font-size: 13px;
+	margin: 10px 0px 5px 0px;
+}
+
+body aside.account section.login form input[type=text], body aside.account section.login form input[type=password], body aside.account section.register form input[type=text], body aside.account section.register form input[type=password] {
+	background-color: #FFFFFF;
+	border: 1px solid #CCCCCC;
+	border-radius: 4px;
+	color: #555555;
+	display: block;
+	font-size: 14px;
+	height: 20px;
+	line-height: 20px;
+	margin-bottom: 10px;
+	padding: 4px 6px;
+	vertical-align: middle;
+	width: 166px;
+}
+
+body aside.account section.login form label {
+	display: block;
+	padding-top: 5px;
+}
+
+body aside.account section.login form label input {
+	margin: 0px;
+}
+
+body aside.account section.login form label span {
+	font-size: 13px;
+	padding-left: 5px
+}
+
+body aside.account section.login form input[type=submit], body aside.account section.register form button {
+	background: #0C0C0C;
+	border: 3px solid #FFFFFF;
+	color: #FFFFFF;
+	margin-top: 15px;
+	padding: 5px;
+	width: 100%;	
+}
+
+body aside.account section.login form input[type=submit]:hover, body aside.account section.register form button:hover {
+	background: #AAAAAA;
+}
+
+body aside.account section.login form input[type=submit]:active, body aside.account section.register form button:active {
+	background: #AAAAAA;
+	border: 3px solid #666666;
+}
+
+body aside.account section.login nav ul li.forgot {
+	background-position: 39px -1431px;
+}
+
+body aside.account section.login nav ul li.register-me {
+	background-position: 39px -915px;
+}
+
+body aside.account section.login nav ul li.register-em {
+	background-position: 39px -952px;
+}
+
+body aside.account section.register {
+	display: none;
+}
+
+body aside.account section.register nav ul li.back {
+	background-position: 39px -1461px;
 }
 
 body aside.account section.person nav ul li.logout {
@@ -399,12 +481,6 @@ body aside.account section.person nav ul li.books {
 
 body aside.account section.person nav ul li.trips {
 	background-position: 39px -1024px;
-}
-
-body aside.account section.person nav ul li a, body aside.account section.person nav ul li a:hover, body aside.account section.person nav ul li a:active {
-	color: #FFFFFF;
-	display: block;
-	padding: 10px 0px 10px 65px;
 }
 
 body aside.account section.facts {

@@ -25,7 +25,7 @@
 	}
 
 //Get the week number, to swap between the two different profile icons
-	$profiles = array("profile-me", "profile-em");
+	$profiles = array("me", "em");
 	$date = new DateTime();
 	$weekRand = $date->format("W") % 2;
 
@@ -34,10 +34,10 @@
 		global $current_user;
 		get_currentuserinfo();
 		
-		$list .= "<li class=\"account logged-in " . $profiles[$weekRand] . "\"><span>" . $current_user->first_name . " " . $current_user->last_name . "</span></li>
+		$list .= "<li class=\"account logged-in profile-" . $profiles[$weekRand] . "\"><span>" . $current_user->first_name . " " . $current_user->last_name . "</span></li>
 ";
 	} else {
-		$list .= "<li class=\"account " . $profiles[$weekRand] . "\"><a href=\"" . get_site_url() . "/wp-login.php?redirect_to=" . urlencode($_SERVER['REQUEST_URI']) . "\">Login</a></li>
+		$list .= "<li class=\"account profile-" . $profiles[$weekRand] . "\"><a href=\"" . get_site_url() . "/wp-login.php?redirect_to=" . urlencode($_SERVER['REQUEST_URI']) . "\">Login</a></li>
 ";
 	}
 
@@ -81,7 +81,7 @@
 
 <nav>
 <ul>
-<li class="logout"><a href="<?php echo wp_logout_url(home_url()); ?>">Logout</a></li>
+<li class="logout"><a href="<?php echo wp_logout_url($_SERVER['REQUEST_URI']); ?>">Logout</a></li>
 <?php
 		if (current_user_can("manage_options")) {
 ?>
@@ -89,7 +89,7 @@
 <?php
 		}
 ?>
-<li class="<?php echo $profiles[$weekRand]; ?>"><a href="<?php echo FFI\RF\HOME; ?>/wp-admin/profile.php">My Account</a></li>
+<li class="profile-<?php echo $profiles[$weekRand]; ?>"><a href="<?php echo FFI\RF\HOME; ?>/wp-admin/profile.php">My Account</a></li>
 <li class="books"><a href="<?php echo FFI\RF\HOME; ?>/wp-admin/profile.php#book-exchange">My Books</a></li>
 <li class="trips"><a href="<?php echo FFI\RF\HOME; ?>/wp-admin/profile.php#travel-assistant">My Trips</a></li>
 </ul>
@@ -113,16 +113,50 @@
 		}
 ?>
 </section>
-
 <?php
 	} else {
 ?>
 <section class="login">
+<form action="<?php echo wp_login_url($_SERVER['REQUEST_URI']);?>" method="post">
+<p>Email address:</p>
+<input autocomplete="off" name="log" placeholder="Your GCC email" type="text">
+<p>Password:</p>
+<input name="pwd" type="password">
+<label><input name="rememberme" type="checkbox" value="true"><span>Remember me</span></label>
+<input name="wp-submit" type="submit" value="Login">
+</form>
 
+<nav>
+<ul>
+<li class="forgot"><a href="<?php echo wp_lostpassword_url($_SERVER['REQUEST_URI']); ?>">Forgot Password</a></li>
+<li class="register-<?php echo $profiles[$weekRand]; ?>" id="register-toggle"><span>Register an Account</span></li>
+</ul>
+</nav>
+</section>
+
+<section class="register">
+<form action="<?php echo get_site_url(); ?>/wp-content/themes/refined/server/register.php" method="post">
+<p>First:</p>
+<input autocomplete="off" name="first" type="text">
+<p>Last:</p>
+<input autocomplete="off" name="last" type="text">
+<p>Email address:</p>
+<input autocomplete="off" name="username" placeholder="Must be @gcc.edu" type="text">
+<p>Password:</p>
+<input name="password" type="password">
+<button type="submit">Register</button>
+</form>
+
+<nav>
+<ul>
+<li class="back" id="login-toggle"><span>Back to Login</span></li>
+</ul>
+</nav>
 </section>
 <?php
 	}
 ?>
+
 <section class="credits">
 <p>Designed and developed by <a href="mailto:sprynoj1@gcc.edu">Oliver Spryn</a></p>
 </section>

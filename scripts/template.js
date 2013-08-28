@@ -98,6 +98,24 @@ window.onload = function() {
 	} else {
 		//Handle directing user to login page on account menu button click
 	}
+	
+/**
+ * Account menu login/register toggle
+ * ----------------------------------
+*/
+
+	var register = document.getElementById('register-toggle');
+	var login = document.getElementById('login-toggle');
+	
+	register.onclick = function(e) {
+		register.parentNode.parentNode.parentNode.style.display = 'none';
+		register.parentNode.parentNode.parentNode.nextElementSibling.style.display = 'block';
+	}
+	
+	login.onclick = function(e) {
+		login.parentNode.parentNode.parentNode.style.display = 'none';
+		login.parentNode.parentNode.parentNode.previousElementSibling.style.display = 'block';
+	}
 		
 /**
  * Navigation and account menus
