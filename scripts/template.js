@@ -21,7 +21,7 @@ window.onload = function() {
 	var navItems = document.querySelectorAll('header#main nav ul li');
 	var navList = nav.parentNode;
 		
-//Apply the selected item class to an menu item when selected
+//Apply the selected item class to a menu item when selected
 	for (var i = 0; i < navItems.length; ++i) {
 		navItems[i].onclick = function(e) {
 			var target;
@@ -72,7 +72,8 @@ window.onload = function() {
 //The menu exists only if the user is logged in
 	if (menu && menu != undefined) {
 		var menuClose = document.querySelectorAll('aside.account span.close')[0];
-		var menuOpen = false, allowMenuClose = true;
+		var menuOpen = false;
+		var allowMenuClose = true;
 			
 	//Open the account menu
 		menuActivate.onclick = function(e) {
@@ -107,14 +108,16 @@ window.onload = function() {
 	var register = document.getElementById('register-toggle');
 	var login = document.getElementById('login-toggle');
 	
-	register.onclick = function(e) {
-		register.parentNode.parentNode.parentNode.style.display = 'none';
-		register.parentNode.parentNode.parentNode.nextElementSibling.style.display = 'block';
-	}
-	
-	login.onclick = function(e) {
-		login.parentNode.parentNode.parentNode.style.display = 'none';
-		login.parentNode.parentNode.parentNode.previousElementSibling.style.display = 'block';
+	if (register !== null) {
+		register.onclick = function(e) {
+			register.parentNode.parentNode.parentNode.style.display = 'none';
+			register.parentNode.parentNode.parentNode.nextElementSibling.style.display = 'block';
+		}
+		
+		login.onclick = function(e) {
+			login.parentNode.parentNode.parentNode.style.display = 'none';
+			login.parentNode.parentNode.parentNode.previousElementSibling.style.display = 'block';
+		}
 	}
 		
 /**

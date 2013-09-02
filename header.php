@@ -90,8 +90,8 @@
 		}
 ?>
 <li class="profile-<?php echo $profiles[$weekRand]; ?>"><a href="<?php echo FFI\RF\HOME; ?>/wp-admin/profile.php">My Account</a></li>
-<li class="books"><a href="<?php echo FFI\RF\HOME; ?>/wp-admin/profile.php#book-exchange">My Books</a></li>
-<li class="trips"><a href="<?php echo FFI\RF\HOME; ?>/wp-admin/profile.php#travel-assistant">My Trips</a></li>
+<li class="books"><a href="<?php echo FFI\RF\HOME; ?>/book-exchange/my-books">My Books</a></li>
+<li class="trips"><a href="<?php echo FFI\RF\HOME; ?>/travel-assistant/my-trips">My Trips</a></li>
 </ul>
 </nav>
 </section>
