@@ -21,6 +21,27 @@
 	if (!defined("FFI\PLUGIN_PAGE")) {
 		echo "
 </section>";
+		
+	//Generate the sidebar links
+		$links = "";
+	
+		if (!empty($post->post_parent)) {
+			$links = "<li class=\"back\"><a href=\"" . get_permalink($post->post_parent) . "\">Back to " . get_the_title($post->post_parent) . "</a></li>\n";
+		}
+	
+		$links .= wp_list_pages('title_li=&depth=1&child_of='.$post->ID.'&echo=0');
+	
+		if (!empty($links)) {
+			echo "
+
+<article class=\"more\">
+<h3>Explore more:</h3>
+
+<ul>
+" . $links . "
+</ul>
+</article>";
+		}
 	}
 
 	get_footer();

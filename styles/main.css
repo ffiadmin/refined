@@ -24,12 +24,12 @@ html, body {
 }
 
 a, a:visited {
-	color: #4BF;
+	color: #44BBFF;
 	text-decoration: none !important;
 }
 
 a:hover, a:active {
-	color: #C36;
+	color: #CC3366;
 }
 
 img {
@@ -115,21 +115,25 @@ header#main nav ul li a, header#main nav ul li span {
 	-webkit-transition: all .25s ease-in-out;
     transition: all .25s ease-in-out;
 	
+	border-top: 5px solid #181818;
 	color: #AAAAAA;
 	cursor: pointer;
 	display: inline-block;
 	font-size: 13px;
 	font-weight: bold;
+	margin-top: -5px;
 	padding: 55px 0px 55px 0px;
 	text-decoration: none;
 	text-transform: uppercase;
 }
 
 header#main nav ul li a:hover, header#main nav ul li span:hover {
+	border-top: 5px solid #44BBFF;
 	color: #232323;
 }
 
 header#main nav ul li a.active, header#main nav ul li.active a {
+	border-top: 5px solid #4D90FE;
 	color: #232323;
 }
 
@@ -611,7 +615,6 @@ article.content, section.content {
 
 article.content.even, section.content.even, article.content.no-splash, section.content.no-splash {
 	background: #F5F5F5;
-	border-bottom: 1px solid #DDDDDD;
 }
 
 article.content > h1, section.content > h1, article.content > h2, section.content > h2, article.content header h1, section.content header h1, article.content header h2, section.content header h2 {
@@ -659,6 +662,59 @@ article.content.center p, section.content.center p {
     article.content > h1::after, section.content > h1::after, article.content > h2::after, section.content > h2::after, article.content header h1::after, section.content header h1::after, article.content header h2::after, section.content header h2::after {
 		content: none;
     }
+}
+
+/**
+ * More content section
+ * ----------------------------------
+*/
+
+article.more {
+	background-color: #2E2E2E;
+	height: 78px;
+}
+
+article.more h3 {
+	color: #FFFFFF;
+	font-size: 14px;
+	margin: 0px;
+	padding: 7px 0px 3px 0px;
+	text-align: center;	
+}
+
+article.more ul {
+	list-style: none;
+	margin: 0px 10%;
+	padding: 0px;
+	text-align: center;
+}
+
+article.more ul li {
+	border-right: 1px solid #1B1B1B;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: bolder;
+	margin: 15px 0px;
+	max-width: 190px;
+	min-width: 190px;
+	width: 190px;
+}
+
+article.more ul li:last-child {
+	border-right: none;
+}
+
+article.more ul li a {
+	color: #FFFFFF;
+	display: block;
+}
+
+article.more ul li.back a {
+	color: #CC3366;
+}
+
+article.more ul li a:hover, article.more ul li.back a:hover {
+	color: #44BBFF;
 }
     
 /**
