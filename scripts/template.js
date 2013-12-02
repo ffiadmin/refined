@@ -54,10 +54,12 @@ window.onload = function() {
 				}
 			}
 			
-		//Don't follow the link
-			e.preventDefault();
-			e.stopPropagation();
-			return false;
+		//Don't follow the link, if the menu is closed
+			if (navList.className == 'open') {
+				e.preventDefault();
+				e.stopPropagation();
+				return false;
+			}
 		}
 	}
 		

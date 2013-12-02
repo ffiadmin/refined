@@ -182,6 +182,8 @@ header#main nav ul li.account.logged-in span {
         -webkit-transition: none;
         transition: none;
         
+		border-top: none;
+		margin-top: 0px;
         padding: 5px;
     }
     
@@ -375,12 +377,14 @@ body aside.account section nav ul li {
 	background: #0C0C0C url(sprites/template-icons.png) no-repeat;
 	cursor: pointer;
 	font-size: 13px;
-	padding: 10px 0px 10px 65px;
+	height: 38px;
 	text-transform: uppercase;
 }
 
 body aside.account section nav ul li a, body aside.account section nav ul li a:hover, body aside.account section nav ul li a:active {
 	color: #FFFFFF;
+	display: block;
+	padding: 10px 0px 10px 65px;
 }
 
 body aside.account section nav ul li:hover {
@@ -715,6 +719,34 @@ article.more ul li.back a {
 
 article.more ul li a:hover, article.more ul li.back a:hover {
 	color: #44BBFF;
+}
+
+@media screen and (max-width: 650px) {
+	article.more {
+		height: auto;
+	}
+
+	article.more ul {
+		margin: 0px;
+	}
+
+	article.more ul li {
+		border-bottom: 1px solid #1B1B1B;
+		border-right: none;
+		display: block;
+		margin: 0px;
+		max-width: none;
+		text-align: center;
+		width: 100%;
+	}
+
+	article.more ul li:last-child {
+		border-bottom: none;
+	}
+
+	article.more ul li a {
+		padding: 15px 0px;
+	}
 }
     
 /**

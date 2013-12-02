@@ -5,7 +5,10 @@
 	define("FFI\RF\CDN", false);
 	define("FFI\RF\HOME", site_url());
 	define("FFI\RF\PATH", dirname(__FILE__));
-	define("FFI\RF\RESOURCE_PATH", (CDN ? "//ffistatic.appspot.com/sga" : site_url()) . "/wp-content/themes/refined/");
+	define("FFI\RF\RESOURCE_PATH", (CDN ? "//your-cdn.com" : site_url()) . "/wp-content/themes/refined/");
+	
+	define("FFI\RF\ENABLED", true);
+	define("FFI\RF\NAME", "Refined");
 
 //Remove the admin bar, the theme will provide one
 	remove_action("wp_head", "_admin_bar_bump_cb");

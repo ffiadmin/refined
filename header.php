@@ -52,7 +52,7 @@
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 <link rel="shortcut icon" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="<?php echo FFI\RF\RESOURCE_PATH; ?>images/mobile/favicon-114.jpg">
-<link rel="stylesheet" href="<?php echo FFI\RF\RESOURCE_PATH; ?>styles/main.css">
+<link rel="stylesheet" href="<?php echo FFI\RF\RESOURCE_PATH; ?>styles/main.min.css">
 <script src="<?php echo FFI\RF\RESOURCE_PATH; ?>scripts/template.min.js"></script>
 
 <?php wp_head(); ?></head>
